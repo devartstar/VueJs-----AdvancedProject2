@@ -1,6 +1,15 @@
 <template>
-    <div class="task1">
-        <h3>{{ task.text }}</h3>
+    <div 
+      @dblclick="$emit('toggle-reminder', task.id)"
+      :class="[task.reminder ? 'reminder' : '', 'task']"
+    >
+        <h3>
+          {{ task.text }}
+          <i 
+            @click="$emit('delete-task', task.id)"
+            class="fas fa-times">
+          </i>
+        </h3>
         <p>{{ task.day }}</p>
     </div>
 </template>
@@ -18,16 +27,16 @@ export default {
 .fas {
   color: red;
 }
-.task1 {
+.task {
   background: #f4f4f4;
   margin: 5px;
   padding: 10px 20px;
   cursor: pointer;
 }
-.task1.reminder {
+.task.reminder {
   border-left: 5px solid green;
 }
-.task1 h3 {
+.task h3 {
   display: flex;
   align-items: center;
   justify-content: space-between;
