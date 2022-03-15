@@ -2,7 +2,7 @@
     <button 
         class="btn" 
         :style="{background: color}"
-        @click="onCLicking()"
+        @click="onClicking()"
     >{{ text }}</button>
 </template>
 
@@ -14,8 +14,8 @@ export default {
         color: String,
     },
     methods: {
-        onCLicking() {
-            console.log("Clicked");
+        onClicking() {
+            this.$emit('btn-click')
         }
     }
 }
