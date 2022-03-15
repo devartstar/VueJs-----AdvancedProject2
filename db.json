@@ -1,0 +1,22 @@
+{
+    "tasks": [        
+      {
+        "id": "1",
+        "text": "Doctor appointent",
+        "day": "6th January",
+        "reminder": true
+      },
+      {
+        "id": "2",
+        "text": "Prof appointent",
+        "day": "7th January",
+        "reminder": false
+      },
+      {
+        "id": "3",
+        "text": "Parent appointent",
+        "day": "8th January",
+        "reminder": true
+      }
+    ]
+}

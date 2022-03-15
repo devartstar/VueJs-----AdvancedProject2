@@ -50,29 +50,20 @@ export default {
     },
     toggleReminder(id){
       this.tasks = this.tasks.map((task) => task.id === id ? {...task, reminder: !task.reminder} : task);
+    },
+    async fetchTasks() {
+      const res = await fetch('http://localhost:5000/tasks');
+      const data = await res.json();
+      return data;
+    },
+    async fetchTask(id) {
+      const res = await fetch(`http://localhost:5000/tasks/${id}`);
+      const data = await res.json();
+      return data;
     }
   },
-  created(){
-    this.tasks = [
-      {
-        id: 1,
-        text: 'Doctor appointent',
-        day: '6th January',
-        reminder: true,
-      },
-      {
-        id: 2,
-        text: 'Teacher appointent',
-        day: '7th January',
-        reminder: true,
-      },
-      {
-        id: 3,
-        text: 'Crushes appointent',
-        day: '8th January',
-        reminder: false,
-      },
-    ]
+  async created(){
+    this.tasks = await this.fetchTasks();
   }
 }
 </script>
